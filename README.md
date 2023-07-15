@@ -25,31 +25,32 @@
 **Module 2: LM Fundamentals**
 + Language Modeling using Seq2Seq Models
 + LM Fundamentals (Pretraining, Discriminative Fine Tuning)
-  - Attention*, Positional Embeddings*
+  - Attention, Positional Embeddings
   - Foundation Models
   - Transfer Learning
-+ The OG Language Models (LSTMs, BERT, XLNET, Distill-BERT,GPT) *
++ The Text Generation using OG Language Models 
  
 **Module 3: Diving into ChatGPT**
 + The Awakening of GPT-3 and LLMs
 + Understanding ChatGPT 
   - Instruction Tuning (InstructGPT, ControlNet)
-  - SFT *
+  - SFT 
   - RLHF
-+ Prompt Engineering *
-+ Evaluation of LLMs/Benchmarks
-
-**Module 4: Mastering the Pretraining and Fine Tuning of LLMs**
-+ Setting up an LLM on local (either of the below options) * 
-    - openLLama
-    - Falcon
-    - GPT4All/ PrivateGPT
-    - Redpyjama
-**Module 5: Master LLMs Part-2**
-+ Limitations of LLMs
 + Fine Tuning LLMs (PEFT techniques: Prefix-tuning, LoRa, QLoRa etc)* 
++ Evaluation of LLMs/Benchmarks
++ Limitations of LLMs
+
+**Module 5: Prompting**
++ Prompt Engineering 
 + Prompt Tuning/Optimization
-+ AI Tooling (AI Agents, LangChain, VectorDB etc)*
+
+**Module 6: LLM-Ops**
++ AI Tooling Landscape
++ LLM Agents, LangChain & More
++ Build Your Own Agent
+
+**Module 4: Localised LLM**
++ Setting up an LLM on primise
 
 **Module 6: Next Frontier**
 + New AI Tools (chatGPT Plugins, BARD, PALM, Co-Pilot)
