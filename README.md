@@ -47,10 +47,8 @@
 **Module 6: LLM-Ops**
 + AI Tooling Landscape
 + LLM Agents, LangChain & More
-+ Build Your Own Agent
-
-**Module 4: Localised LLM**
-+ Setting up an LLM on primise
++ Setting up an LLM on-prem
++ End to End Setup
 
 **Module 6: Next Frontier**
 + New AI Tools (chatGPT Plugins, BARD, PALM, Co-Pilot)
