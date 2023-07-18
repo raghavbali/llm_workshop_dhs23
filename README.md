@@ -9,25 +9,17 @@
 - Basic understanding of Deep Neural Networks
 - Basics/hands-on experience with pytorch
 - Access to google-colab or similar python environment
+- Access to chatGPT or Google-Bard (free access)
 
 
 ## Agenda
 **Module 1: Introduction to Generative AI**
 + Introduction to Generative AI
-+ NLP (GPT)
-+ Code Generation (Co-Pilot)
-+ Computer Vision (Mid-Journey)
-+ Audio (OpenAI Whisper)
-+ Video (Make-a-video)
-+ Multi-Modal (GPT4, MUM)
 + The NLP Journey (TF-IDF to Word2Vec to Sequence Modeling to Transformers)
   
 **Module 2: LM Fundamentals**
 + Language Modeling using Seq2Seq Models
-+ LM Fundamentals (Pretraining, Discriminative Fine Tuning)
-  - Attention, Positional Embeddings
-  - Foundation Models
-  - Transfer Learning
++ LM Fundamentals
 + The Text Generation using OG Language Models 
  
 **Module 3: Diving into ChatGPT**
@@ -42,7 +34,7 @@
 
 **Module 4: Prompting**
 + Prompt Engineering 
-+ Prompt Tuning/Optimization
++ Prompt Optimization
 
 **Module 5: LLM-Ops**
 + AI Tooling Landscape
