@@ -40,11 +40,11 @@
 + Evaluation of LLMs/Benchmarks
 + Limitations of LLMs
 
-**Module 5: Prompting**
+**Module 4: Prompting**
 + Prompt Engineering 
 + Prompt Tuning/Optimization
 
-**Module 6: LLM-Ops**
+**Module 5: LLM-Ops**
 + AI Tooling Landscape
 + LLM Agents, LangChain & More
 + Setting up an LLM on-prem
