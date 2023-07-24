@@ -32,17 +32,16 @@
 + Evaluation of LLMs/Benchmarks
 + Limitations of LLMs
 
-**Module 4: Prompting**
+**Module 4: LLM-Ops & Prompting**
++ Setting up an LLM on-prem
 + Prompt Engineering 
 + Prompt Optimization
 
-**Module 5: LLM-Ops**
-+ AI Tooling Landscape
-+ LLM Agents, LangChain & More
-+ Setting up an LLM on-prem
+**Module 5: Building Your Own LLM Powered App**
 + End to End Setup
 
 **Module 6: Next Frontier**
-+ New AI Tools (chatGPT Plugins, BARD, PALM, Co-Pilot)
++ New AI Tools (chatGPT Plugins, BARD, PALM APIs)
 + What Next? (AutoGPT, GPT-4 and beyond)
++ Challenges
 
