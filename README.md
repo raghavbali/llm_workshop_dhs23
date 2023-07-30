@@ -11,8 +11,11 @@
 - Access to google-colab or similar python environment
 - Access to chatGPT or Google-Bard (free access)
 
-
 ## Agenda
+<img src="./assets/workshop_flow.png">
+
+---
+
 **Module 1: Introduction to Generative AI**
 + Introduction to Generative AI
 + The NLP Journey (TF-IDF to Word2Vec to Sequence Modeling to Transformers)
@@ -43,5 +46,4 @@
 **Module 6: Next Frontier**
 + New AI Tools (chatGPT Plugins, BARD, PALM APIs)
 + What Next? (AutoGPT, GPT-4 and beyond)
-+ Challenges
 
