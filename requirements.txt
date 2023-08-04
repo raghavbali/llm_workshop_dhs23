@@ -1,4 +1,4 @@
-pandas2
+pandas
 matplotlib
 transformers
 tiktoken
