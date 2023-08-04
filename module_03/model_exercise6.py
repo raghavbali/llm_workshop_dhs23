@@ -33,7 +33,6 @@ class CausalSelfAttention(nn.Module):
         # causal mask to ensure that attention is only applied to the left in the input sequence
         self.register_buffer("bias", torch.tril(torch.ones(config["block_size"], config["block_size"]))
                                         .view(1, 1, config["block_size"], config["block_size"]))
-        
         if config.get("lora_rank",0)>0:
             self.c_attn.requires_grad_(False)
             self.c_proj.requires_grad_(False)
@@ -117,7 +116,7 @@ class Adapter(nn.Module):
         x=self.up_proj(x)
         x=self.dropout(x)
         return x
-
+    
 class Block(nn.Module):
 
     def __init__(self, config):
@@ -133,9 +132,6 @@ class Block(nn.Module):
             self.mlp.requires_grad_(False)
             self.ln_3 = LayerNorm(config["n_embd"], bias=config["bias"])
             self.adapter=Adapter(config)
-        if config.get("lora_rank",0)>0:
-            self.ln_1.requires_grad_(False)
-            self.ln_2.requires_grad_(False)
 
     def forward(self, x):
         x = x + self.attn(self.ln_1(x))
@@ -157,29 +153,16 @@ class GPT(nn.Module):
             drop = nn.Dropout(config["dropout"]),
             h = nn.ModuleList([Block(config) for _ in range(config["n_layer"])]),
             ln_f = LayerNorm(config["n_embd"], bias=config["bias"]),
-        ))
-        
-        if config.get("ln_before_head",False):
-            self.ln_bh = LayerNorm(config["n_embd"], bias=config["bias"])
-            
+        ))           
         if config.get("n_classes",0)<=0:
             self.lm_head = nn.Linear(config["n_embd"], config["vocab_size"], bias=False)
             self.transformer.wte.weight = self.lm_head.weight # https://paperswithcode.com/method/weight-tying
         else:
             self.c_head = nn.Linear(config["n_embd"], config["n_classes"], bias=False)
             
-        if config.get("last_n",-1)>=0:
-            assert config["last_n"]<=config["n_layer"], "last_n more than the number of layers"
-            self.transformer.wte.requires_grad_(False)
-            self.transformer.wpe.requires_grad_(False)
-            for _ in range(config["n_layer"]-config["last_n"]):
-                self.transformer.h[_].requires_grad_(False)
-            if config["last_n"]==0:
-                self.transformer.ln_f.requires_grad_(False)
-                
         if config.get("freeze",False):
             self.transformer.requires_grad_(False)
-
+            
         if config.get("adapter_size",0)>0:
             self.transformer.wte.requires_grad_(False)
             self.transformer.wpe.requires_grad_(False)
@@ -196,7 +179,7 @@ class GPT(nn.Module):
                 
         if config.get("prompt_vocab_size",0)>0:
             self.transformer.requires_grad_(False)
-            
+                        
         # init all weights
         self.apply(self._init_weights)
         # apply special scaled init to the residual projections, per GPT-2 paper
@@ -262,10 +245,7 @@ class GPT(nn.Module):
         for block in self.transformer.h:
             x = block(x)
         x = self.transformer.ln_f(x)
-        
-        if hasattr(self,'ln_bh'):
-            x = self.ln_bh(x)
-            
+
         if hasattr(self,'c_head'):
             logits = self.c_head(x[:,-1,:])
             if targets is not None:
@@ -352,8 +332,8 @@ class GPT(nn.Module):
         if pad_token is not None:
             self.config["pad_token"]=pad_token
         with torch.no_grad():
-            new_embeddings = nn.Embedding(self.config["vocab_size"]+n_added_tokens,
-                                          self.config["n_embd"],padding_idx=self.config.get("pad_token",None))
+            # to-do: initialize new embeddings
+            new_embeddings = nn.Embedding(, ,padding_idx=self.config.get("pad_token",None))
             new_embeddings.to(self.transformer.wte.weight.device, dtype=self.transformer.wte.weight.dtype)
             self._init_weights(new_embeddings)
             new_embeddings.weight.data[:self.config["vocab_size"], :] = self.transformer.wte.weight.data[
@@ -363,7 +343,8 @@ class GPT(nn.Module):
             self.transformer.wte.requires_grad_(learnable)
 
             if hasattr(self,'lm_head'):
-                new_lm_head = nn.Linear(self.config["n_embd"], self.config["vocab_size"]+n_added_tokens, bias=False)
+                # to-do: initialize new lm_head
+                new_lm_head = nn.Linear(, , bias=False)
                 new_lm_head = new_lm_head.to(self.lm_head.weight.device, dtype=self.lm_head.weight.dtype)
                 self._init_weights(new_lm_head)
                 new_lm_head.weight.data[:self.config["vocab_size"],:] = self.lm_head.weight.data[:self.config["vocab_size"],:]
@@ -372,7 +353,8 @@ class GPT(nn.Module):
                 self.lm_head.requires_grad_(learnable)
                 self.transformer.wte.weight = self.lm_head.weight
 
-            self.config["vocab_size"]+=n_added_tokens
+            # to-do: what will be the new vocab_size?
+            self.config["vocab_size"]=
             
     
     @classmethod
