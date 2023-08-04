@@ -3,3 +3,8 @@ matplotlib
 transformers
 tiktoken
 names-dataset
+torchtext
+nltk
+scikit-learn
+gensim
+seaborn
