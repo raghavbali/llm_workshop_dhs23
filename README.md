@@ -25,15 +25,15 @@
 + LM Fundamentals
 + The Text Generation using OG Language Models 
  
-**Module 3: Diving into ChatGPT**
-+ The Awakening of GPT-3 and LLMs
-+ Understanding ChatGPT 
-  - Instruction Tuning (InstructGPT, ControlNet)
-  - SFT 
-  - RLHF
-+ Fine Tuning LLMs (PEFT techniques: Prefix-tuning, LoRa, QLoRa etc)* 
-+ Evaluation of LLMs/Benchmarks
-+ Limitations of LLMs
+**Module 3: Diving into GPT**
++ Pre-Training
+   + Mixed Precision Training
++ PEFT
+   + Adapter
+   + LoRA
+   + Prompt Tuning
++ Instruction Tuning
++ Injecting CommonSense in GPT
 
 **Module 4: LLM-Ops & Prompting**
 + Setting up an LLM on-prem

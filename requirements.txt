@@ -1,0 +1,5 @@
+pandas2
+matplotlib
+transformers
+tiktoken
+names-dataset
