@@ -192,6 +192,9 @@ class Block(nn.Module):
             self.mlp.requires_grad_(False)
             self.ln_3 = LayerNorm(config["n_embd"], bias=config["bias"])
             self.adapter = Adapter(config)
+        if config.get("lora_rank", 0) > 0:
+            self.ln_1.requires_grad_(False)
+            self.ln_2.requires_grad_(False)
 
     def forward(self, x):
         x = x + self.attn(self.ln_1(x))
